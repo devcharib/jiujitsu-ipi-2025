@@ -9,9 +9,11 @@ const CONFIG = {
     XP_CONFIG: {
         PRESENCA: 10,
         PONTUAL: 5,
+        DISCIPLINA: 15,
         OURO: 250,
         PRATA: 200,
         BRONZE: 150,
         PARTICIPACAO: 100
     }
+
 };
