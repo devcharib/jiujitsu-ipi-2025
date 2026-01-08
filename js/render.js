@@ -132,7 +132,9 @@ const Render = {
         const xpGrauAtual = (aluno.xp % aluno.xpNecessario);
         const progressoGrau = (xpGrauAtual / aluno.xpNecessario) * 100;
         const xpProximoGrau = aluno.xpNecessario - xpGrauAtual;
-        const totalPresencas = dados.presencas.filter(p => p.Nome === aluno.Nome).length;
+        const presencasAluno = dados.presencas.filter(p => p.Nome === aluno.Nome);
+        const datasUnicas = new Set(presencasAluno.map(p => p.Data));
+        const totalPresencas = datasUnicas.size;
         const pontuais = dados.presencas.filter(p => p.Nome === aluno.Nome && p.Pontual && p.Pontual.toLowerCase() === 'sim').length;
         const totalComps = dados.competicoes.filter(c => c.Nome === aluno.Nome).length;
 
@@ -227,4 +229,5 @@ const Render = {
 
         return html;
     }
+
 };
