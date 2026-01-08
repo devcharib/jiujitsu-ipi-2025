@@ -1,8 +1,11 @@
 const Render = {
     dashboard(alunos, dados) {
-        const totalPresencas = dados.presencas.length;
-        const totalCompeticoes = dados.competicoes.length;
-        const totalXP = alunos.reduce((acc, a) => acc + a.xp, 0);
+    // ✅ CORRETO: Conta datas únicas de treino
+    const datasUnicas = new Set(dados.presencas.map(p => p.Data));
+    const totalPresencas = datasUnicas.size;
+    
+    const totalCompeticoes = dados.competicoes.length;
+    const totalXP = alunos.reduce((acc, a) => acc + a.xp, 0);
 
         return `
             <div class="grid md:grid-cols-4 gap-6 mb-8">
@@ -231,3 +234,4 @@ const Render = {
     }
 
 };
+
